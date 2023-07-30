@@ -69,7 +69,7 @@ class TwigRuntimeExtension
      */
     public function isCurrentUrl(string $routeName, array $data = []): bool
     {
-        $currentUrl = $this->basePath . $this->uri->getPath();
+        $currentUrl = $this->uri->getPath();
         $result = $this->routeParser->urlFor($routeName, $data);
 
         return $result === $currentUrl;
@@ -84,7 +84,7 @@ class TwigRuntimeExtension
      */
     public function getCurrentUrl(bool $withQueryString = false): string
     {
-        $currentUrl = $this->basePath . $this->uri->getPath();
+        $currentUrl = $this->uri->getPath();
         $query = $this->uri->getQuery();
 
         if ($withQueryString && !empty($query)) {
